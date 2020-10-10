@@ -1,0 +1,31 @@
+<button (click)="onBackToList()" [className]="darkmode == 'darkmode-off' ? 'backToList' : 'backToList-darkmode'">back</button>
+<div></div>
+<div [className]="darkmode == 'darkmode-off' ? 'selectedItemData' : 'selectedItemData-darkmode'">
+	<div class="selectedItemImg"><img src={{selectedCard.flag}} alt="flag" class="flags"/></div>
+		<div class="details">
+			<div class="countryName">{{selectedCard.name}}</div>
+			<div class="selectedItemDetails">
+				<div>
+					<div> <span>Native Name: </span>{{selectedCard.nativeName}}</div>
+					<div> <span>population: </span>{{selectedCard.population}}</div>
+					<div> <span>region: </span>{{selectedCard.region}}</div>
+					<div> <span>Sub Region: </span>{{selectedCard.subregion}}</div>
+					<div><span>capital: </span>{{selectedCard.capital}}</div>
+				</div>
+				<div>
+            <div> <span>Top Level Domain: </span>{{selectedCard.topLevelDomain}}</div>
+						<div>
+							<span>currencies: </span><span *ngFor="let currencie of selectedCard.currencies">{{currencie.name}}, </span>
+						</div>
+						<div>
+							<span>languages: </span><span *ngFor="let language of selectedCard.languages">{{language.name}}, </span>
+						</div>
+						<div> <span>Sub Region: </span>{{selectedCard.subregion}}</div>
+				</div>
+			</div>
+			<div class="borders">border countries:
+				<button  (click)="goToBorderCard(border)" [className]="darkmode == 'darkmode-off' ? 'border' : 'border-darkmode'" *ngFor="let border of cardborders">{{border.name}} </button>
+			</div>
+		</div>
+
+	</div>

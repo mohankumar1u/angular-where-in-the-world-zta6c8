@@ -1,0 +1,30 @@
+.cards {
+  width: 250px;
+  border-radius: 10px;
+  margin-top:20px;
+  margin-bottom:20px;
+  margin-right:20px;
+  margin-left:20px;
+  background-color: white;
+}
+.cards-darkmode{
+  width: 250px;
+  border-radius: 10px;
+  margin: 20px;
+  background-color: #2b3743;
+  -webkit-text-fill-color: white;
+}
+.flags {
+  width: 100%;
+  height: 150px;
+  border-radius: 10px 10px 0px 0px;
+}
+.countryName {
+  font: bold;
+  font-weight: 600;
+  padding: 5%;
+}
+.countryValues {
+  text-align: left;
+  padding-left: 5%;
+}

@@ -1,0 +1,25 @@
+<div [className]="darkmode == 'darkmode-off' ? 'home' : 'home-darkmode'">
+	<div [className]="darkmode == 'darkmode-off' ? 'header' : 'header-darkmode'">
+		<h1 class="heading">where in the world?</h1> <button [className]="darkmode == 'darkmode-off' ? 'darkmode' : 'darkmode-on'"(click)="darkmodeChange()">Dark mode</button>
+	</div>
+
+	<div *ngIf="(selectedCard | json)== '{}'">
+		<input [className]="darkmode == 'darkmode-off' ? 'search' : 'search-darkmode'" type="text" name="search" [(ngModel)]
+      ="searchText"  placeholder="search for country" >
+		<label [className]="darkmode == 'darkmode-off' ? 'filterLabel' : 'filterLabel-darkmode'"></label>
+		<select name="filter by Region" [(ngModel)]="selectedBrand" (change)="valueSelected()" [className]="darkmode == 'darkmode-off' ? 'filter' : 'filter-darkmode'">
+         <option value={{item}} *ngFor="let item of this.region">{{ item }}</option>
+     </select>
+		<div class="cardsHoalder">
+			<app-cards (itemSelected)="onItemSelected(card)"
+				[OneInput]="{card: card, selectedBrand: selectedBrand, searchText:searchText, darkmode:darkmode}"
+				*ngFor="let card of cards | filter:searchText">
+			</app-cards>
+		</div>
+	</div>
+	<div *ngIf="(selectedCard | json) != '{}'"
+		[className]="darkmode == 'darkmode-off' ? 'selectedItemPage' : 'selectedItemPage-darkmode'">
+		<app-single-item-page [OneInput]="{selectedCard: selectedCard, darkmode:darkmode, cardborders:cardborders}"
+			(backToList)="onItemSelected($event)"></app-single-item-page>
+	</div>
+</div>
